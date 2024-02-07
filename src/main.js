@@ -1,15 +1,15 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faSquareGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
 
-library.add(faLinkedin, faGithub, faInstagram);
+// Add the imported icon(s) to the library
+library.add(faSquareGithub, faLinkedin);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+const app = createApp(App);
 
-Vue.config.productionTip = false;
+// Register the FontAwesomeIcon component globally
+app.component('font-awesome-icon', FontAwesomeIcon);
 
-new Vue({
-  render: (h) => h(App),
-}).$mount('#app');
+app.mount('#app');
